@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reaplette.signup.mappers.SignUpMapper">
+
+    <!-- 사용자 이름 중복 확인 -->
+    <select id="checkUsernameDuplicate" parameterType="string" resultType="int">
+        SELECT COUNT(*) FROM user WHERE username = #{username}
+    </select>
+
+    <!--사용자 정보 저장 -->
+    <insert id="insertUser" parameterType="UserVO">
+        INSERT INTO user ( id, pw, username, profileImagePath, signInDate, isDelete, followerCount, followingCount, loginType )
+        VALUES ( #{id}, #{pw}, #{username}, #{profileImagePath}, #{signInDate}, #{isDelete}, #{followerCount}, #{followingCount}, #{loginType} )
+    </insert>
+
+    <!-- 사용자 취향 데이터 저장 -->
+    <insert id="insertPreference" parameterType="PreferenceVO">
+        INSERT INTO preference (id, category)
+        VALUES (#{id}, #{category})
+    </insert>
+
+</mapper>

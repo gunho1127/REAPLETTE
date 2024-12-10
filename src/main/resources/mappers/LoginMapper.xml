@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reaplette.login.mappers.LoginMapper">
+
+    <!-- 이메일로 사용자 조회 -->
+    <select id="getUserById" parameterType="string" resultType="com.reaplette.domain.UserVO">
+        SELECT * FROM user WHERE id = #{id} AND isDelete = 1
+    </select>
+
+    <!-- 이메일과 비밀번호를 조회 -->
+    <select id="validatePassword" parameterType="map" resultType="boolean">
+        SELECT EXISTS ( SELECT 1 FROM user WHERE id = #{id} AND pw = #{pw} AND isDelete = 1 )
+    </select>
+
+    <!-- 임시 비밀번호 업데이트 -->
+    <update id="updatePassword" parameterType="UserVO">
+        UPDATE user SET pw = #{pw} WHERE id = #{id} AND isDelete = 1
+    </update>
+
+    <!-- 인증 코드 업데이트 -->
+    <update id="updateVerificationCode" parameterType="map">
+        UPDATE user SET verificationCode = #{verificationCode}, codeSentTime = NOW() WHERE id = #{id}
+    </update>
+
+    <!-- 네이버 회원인지 체크 -->
+    <select id="isNaver" resultType="boolean">
+        SELECT EXISTS ( SELECT 1 FROM USER WHERE id = #{id} AND loginType = 'naver' AND isDelete = 1 )
+    </select>
+
+</mapper>

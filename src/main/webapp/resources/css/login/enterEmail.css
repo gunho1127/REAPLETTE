@@ -1,0 +1,233 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    min-height: 100vh; /* 화면 전체 높이를 사용 */
+    font-family: 'Pretendard-Regular', Arial, sans-serif;
+    margin: 0;
+    background-color: transparent;
+    color: #21272A; /* 기본 바디 글자색 */
+}
+
+h2 {
+    font-size: 42px; /* 예시의 h2와 맞춘 크기 */
+    margin-bottom: 20px;
+    color: #21272A;
+}
+
+label {
+    font-size: 14px; /* 예시와 일치하도록 아이디 필드에 맞는 텍스트 크기 설정 */
+    color: #21272A;
+}
+
+/* 로그인 박스 */
+.login-box {
+    background-color: transparent;
+    padding: 30px;
+    width: 100%; /* 화면 너비의 100%로 설정 */
+    max-width: 600px;
+    min-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0px; /* 직각 처리 */
+    box-shadow: none; /* 기본 박스 그림자 제거 */
+    margin: 50px auto 100px auto; /* 헤더 아래 여백 50px, 푸터 위 여백 100px */
+}
+
+/* 입력칸을 감싸는 div */
+.input-container {
+    position: relative; /* 아이콘을 절대 위치시키기 위한 설정 */
+}
+
+/* 입력 필드 스타일 */
+.form-control {
+    background-color: #F2F4F8;
+    border: none;
+    border-bottom: 2px solid #C1C7CD;
+    padding: 12px;
+    padding-right: 30px; /* x 아이콘을 위한 공간 확보 */
+    color: #697077;
+    border-radius: 0px; /* 직각 처리 */
+}
+
+/* 포커스 시 배경색과 글자색 유지 */
+.form-control:focus {
+    outline: none;
+    border-bottom: 2px solid #C1C7CD; /* 아래선 색상 */
+    box-shadow: none; /* 그림자 제거 */
+    background-color: #F2F4F8; /* 배경색 유지 */
+}
+
+/* 이메일 입력칸 기본 글자색 */
+.form-control::placeholder {
+    color: #697077;
+}
+
+/* 포커스 시 글자색 유지, placeholder가 사라지지 않도록 */
+.form-control:focus::placeholder {
+    color: transparent; /* 포커스 시 placeholder를 투명하게 처리 */
+}
+
+/* 아이콘 위치 설정 */
+.clear-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* 오른쪽 끝에 위치시키기 */
+    transform: translateY(-50%); /* 세로 중앙 정렬 */
+    cursor: pointer;
+    display: none; /* 기본적으로 숨기기 */
+}
+
+/* 아이콘 이미지 스타일 */
+.clear-icon img {
+    width: 16px; /* 원하는 크기로 설정 */
+    height: 16px;
+    display: block;
+    filter: grayscale(1); /* 회색 조 적용 */
+    opacity: 0.5; /* 연한 회색 느낌 */
+    transition: filter 0.3s ease, opacity 0.3s ease; /* 전환 효과 추가 */
+}
+
+/* 입력값이 있을 때 x 아이콘 보이기 */
+#id:focus + .clear-icon,
+#id:not(:placeholder-shown) + .clear-icon {
+    display: block; /* 이미지를 표시 */
+}
+
+/* 아이콘 호버 효과 */
+.clear-icon:hover img {
+    opacity: 0.7; /* 진한 회색으로 변경 */
+}
+
+button {
+    font-size: 16px;
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px; /* 하단 마진을 줄여서 네이버 버튼과의 간격 조정 */
+    border-radius: 0px !important; /* 직각 처리 */
+    background-color: #0F62FE;  /* 시작하기 버튼 파란색 */
+    color: white;
+    border: none; /* 기본 버튼 스타일 제거 */
+    cursor: pointer;
+}
+
+/* 시작하기 버튼 호버 색상 */
+button:hover {
+    background-color: #0056b3; /* 어두운 파란색 */
+}
+
+/* 소셜 계정으로 간편 로그인 문구 글자색 수정 */
+.social-login-text {
+    color: #21272A; /* 소셜 계정 문구의 글자색을 #21272A로 변경 */
+    margin-bottom: 20px; /* 하단 마진을 줄여서 네이버 버튼과의 간격 조정 */
+}
+
+/* 네이버로 시작하기 버튼 스타일 */
+#naver-login {
+    background-color: #1EC800;  /* 네이버로 시작하기 버튼 배경색 */
+    color: white; /* 글자색은 흰색으로 유지 */
+    border: none;
+    border-radius: 0px; /* 직각 처리 */
+    width: 100%; /* 네이버 버튼도 가로로 꽉 차게 만듦 */
+    padding: 12px; /* 크기를 "시작하기" 버튼과 동일하게 맞춤 */
+    margin-bottom: 30px; /* 하단 마진을 줄여서 네이버 버튼과의 간격 조정 */
+    box-shadow: none; /* 버튼에 그림자 제거 */
+    font-size: 16px; /* 글자 크기를 "시작하기" 버튼과 동일하게 맞춤 */
+    display: flex; /* 아이콘과 텍스트를 가로로 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+}
+
+/* 네이버로 시작하기 버튼 호버 색상 */
+#naver-login:hover {
+    background-color: #16b600; /* 어두운 초록색으로 변경 */
+}
+
+/* 네이버 아이콘을 감싼 span 스타일 */
+#naver-login .icon {
+    display: inline-flex; /* 텍스트 옆에 이미지 배치 */
+    align-items: center; /* 아이콘과 텍스트 세로로 정렬 */
+    margin-right: 8px; /* 텍스트와 간격 조정 */
+}
+
+/* 호버 시 아이콘 색상 유지 */
+#naver-login:hover .icon img {
+    filter: invert(1); /* 호버 시에도 흰색 유지 */
+}
+
+/* 아이콘 이미지 스타일 */
+#naver-login .icon img {
+    width: 20px; /* 아이콘 크기 */
+    height: 20px; /* 아이콘 크기 동일하게 설정 */
+    box-shadow: none; /* 이미지에 그림자 제거 */
+    filter: invert(1); /* 기본 상태에서 검은색 아이콘을 흰색으로 반전 */
+    margin-top: -5px; /* 아이콘을 위로 올리기 위한 값 (필요에 따라 조정) */
+}
+
+/* 텍스트 스타일 */
+#naver-login .text {
+    display: inline-flex;
+    align-items: center; /* 텍스트와 아이콘 세로로 정렬 */
+}
+
+/* 이메일 오류 메시지 스타일 */
+#email-error {
+    font-size: 14px; /* 메시지 글자 크기 */
+    color: #DA1E28; /* 빨간색 오류 메시지 */
+    margin-top: 5px; /* 입력칸과 메시지 간 간격 */
+    transition: visibility 0.3s, opacity 0.3s ease-in-out;
+    text-align: left; /* 오류 메시지 왼쪽 정렬 */
+}
+
+/* 헤더 스타일 */
+.header {
+    height: 56px; /* 고정된 헤더 높이 */
+    background-color: transparent;
+    border-bottom: 1px solid #DDE1E6; /* 헤더 구분선 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    position: fixed;
+    top: 0; /* 페이지 상단 고정 */
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* 헤더가 다른 요소 위에 오도록 */
+}
+
+/* 푸터 스타일 */
+.footer {
+    height: 179px; /* 고정된 푸터 높이 */
+    background-color: transparent;
+    border-top: 1px solid #DDE1E6; /* 푸터 구분선 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0; /* 페이지 하단 고정 */
+    left: 0;
+    width: 100%;
+}
+
+/* 반응형 처리 */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,300 @@
+/* 폰트 설정 */
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* 기본 바디 스타일 */
+body {
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    min-height: 100vh; /* 화면 전체 높이를 사용 */
+    font-family: 'Pretendard-Regular', Arial, sans-serif;
+    margin: 0;
+    background-color: transparent;
+    color: #21272A; /* 기본 바디 글자색 */
+}
+
+/* 제목 */
+h4.text-left {
+    margin: 0;
+    font-size: 18px;
+    color: #21272A;
+    padding-top: 10px; /* 기존 20px에서 10px로 줄이기 */
+    padding-bottom: 100px; /* 필요에 따라 하단 여백 추가 */
+}
+
+label {
+    font-size: 14px; /* 예시와 일치하도록 아이디 필드에 맞는 텍스트 크기 설정 */
+    color: #21272A;
+}
+
+/* 회원가입 박스 */
+.login-box {
+    background-color: transparent;
+    padding: 30px;
+    width: 100%; /* 화면 너비의 100%로 설정 */
+    max-width: 600px;
+    min-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    border-radius: 0px; /* 직각 처리 */
+    box-shadow: none; /* 기본 박스 그림자 제거 */
+    margin: 50px auto 100px auto; /* 헤더 아래 여백 50px, 푸터 위 여백 100px */
+}
+
+/* 입력칸을 감싸는 div */
+.input-container {
+    position: relative; /* 아이콘을 절대 위치시키기 위한 설정 */
+}
+
+/* 입력 필드 스타일 */
+.form-control {
+    background-color: #F2F4F8;
+    border: none;
+    border-bottom: 2px solid #C1C7CD;
+    padding: 12px;
+    padding-right: 30px; /* x 아이콘을 위한 공간 확보 */
+    color: #697077;
+    border-radius: 0px; /* 직각 처리 */
+}
+
+/* 포커스 시 배경색과 글자색 유지 */
+.form-control:focus {
+    outline: none;
+    border-bottom: 2px solid #C1C7CD; /* 아래선 색상 */
+    box-shadow: none; /* 그림자 제거 */
+    background-color: #F2F4F8; /* 배경색 유지 */
+}
+
+/* 이메일 입력칸 기본 글자색 */
+.form-control::placeholder {
+    color: #697077;
+}
+
+/* 포커스 시 글자색 유지, placeholder가 사라지지 않도록 */
+.form-control:focus::placeholder {
+    color: transparent; /* 포커스 시 placeholder를 투명하게 처리 */
+}
+
+/* 아이콘 위치 설정 */
+.clear-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* 오른쪽 끝에 위치시키기 */
+    transform: translateY(-50%); /* 세로 중앙 정렬 */
+    cursor: pointer;
+    display: none; /* 기본적으로 숨기기 */
+}
+
+/* 아이콘 이미지 스타일 */
+.clear-icon img {
+    width: 16px; /* 원하는 크기로 설정 */
+    height: 16px;
+    display: block;
+    filter: grayscale(1); /* 회색 조 적용 */
+    opacity: 0.5; /* 연한 회색 느낌 */
+    transition: filter 0.3s ease, opacity 0.3s ease; /* 전환 효과 추가 */
+}
+
+/* 입력 필드 내 지우기 아이콘 */
+.clear-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: none;
+}
+
+/* 입력값이 있을 때 x 아이콘 보이기 */
+#username:focus + .clear-icon,
+#username:not(:placeholder-shown) + .clear-icon {
+    display: block; /* 이미지를 표시 */
+}
+
+/* 아이콘 호버 효과 */
+.clear-icon:hover img {
+    opacity: 0.7; /* 진한 회색으로 변경 */
+}
+
+.clear-icon:hover img {
+    opacity: 1;
+}
+
+/* 포커스 시 배경색과 글자색 유지 */
+.form-control:focus {
+    outline: none;
+    border-bottom: 2px solid #C1C7CD; /* 아래선 색상 */
+    box-shadow: none; /* 그림자 제거 */
+    background-color: #F2F4F8; /* 배경색 유지 */
+}
+
+button {
+    width: 105px;  /* 너비 105px */
+    font-size: 16px;
+    font-weight: 500;  /* 글자 굵기 */
+    height: 48px;  /* 높이 48px */
+    padding: 12px;
+    margin-top: 20px;
+    margin-bottom: 10px; /* 하단 마진을 줄여서 네이버 버튼과의 간격 조정 */
+    border-radius: 0px !important; /* 직각 처리 */
+    background-color: #0F62FE;  /* 파란색 */
+    color: white;
+    border: none; /* 기본 버튼 스타일 제거 */
+    cursor: pointer;
+    }
+
+/* 시작하기 버튼 호버 색상 */
+button:hover {
+    background-color: #0056b3; /* 어두운 파란색 */
+}
+
+/* 취향 선택 라벨 여백 추가 */
+label[for="categories"] {
+    margin-top: 20px; /* 라벨 위쪽 여백 */
+    margin-bottom: 20px; /* 라벨 아래쪽 여백 */
+    display: block; /* 블록 요소로 변경하여 여백 적용 */
+}
+
+/* 배지 스타일 기본 설정 */
+.badge {
+    background-color: #f2f4f8; /* 기본 배경색 */
+    color: #21272a; /* 기본 글자색 */
+    font-size: 15px; /* 글자 크기 */
+    line-height: 120%; /* 줄 간격 설정 */
+    font-weight: 400; /* 폰트 두께 설정 */
+    border-radius: 12px; /* 둥근 모서리 */
+    padding: 8px 12px; /* 여백은 그대로 유지 */
+    cursor: pointer; /* 클릭 가능 커서 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    display: inline-block; /* 인라인 블록으로 설정 */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* 전환 효과 */
+/*    position: relative; */
+}
+
+/* 배지 클릭(선택) 시 스타일 */
+.preference-container .badge[data-selected="true"] {
+    background-color: #697077; /* 선택된 배경색 */
+    color: #ffffff; /* 선택된 글자색 */
+    transform: scale(1.05); /* 선택된 배지 확대 효과 */
+}
+
+/* 배지에 마우스 오버 시 효과 */
+.badge:hover {
+    background-color: #d0d3d8; /* 호버 시 배경색 */
+    color: #21272a; /* 호버 시 글자색 */
+    transform: scale(1.05); /* 호버 시 배지 확대 효과 */
+}
+
+/* 배지 행 정렬 */
+.badge-row {
+    display: flex;
+    flex-wrap: wrap; /* 여러 줄로 나눠 정렬 */
+    gap: 16px; /* 배지 간격 */
+    margin-bottom: 16px; /* 행 간격 */
+    justify-content: space-between; /* 배지들이 양옆 끝으로 배치되도록 설정 */
+    align-items: center; /* 배지들을 수직으로 중앙 정렬 */
+}
+
+/* 버튼 컨테이너 정렬 */
+.preference-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* 행 간 간격 */
+    }
+
+.d-flex {
+    width: 100%;
+}
+
+/* 취소 버튼 스타일 */
+#cancel-button {
+    padding: 16px 12px;  /* 패딩 값 조정 */
+    border: 2px solid #0F62FE;  /* 파란색 테두리 */
+    background-color: transparent;
+    display: inline-flex;
+    justify-content: center;  /* 텍스트 중앙 정렬 */
+    align-items: center;  /* 텍스트 중앙 정렬 */
+    border-radius: 0px;  /* 직각 처리 */
+    cursor: pointer;
+}
+
+#cancel-button {
+    color: #0F62FE;  /* 파란색 글자 */
+    font-size: 16px;  /* 글자 크기 */
+    font-weight: 500;  /* 글자 굵기 */
+    letter-spacing: 0.50px;  /* 글자 간격 */
+    word-wrap: break-word;  /* 글자 래핑 처리 */
+}
+
+/* 확인 버튼 hover 시 스타일 */
+#cancel-button:hover {
+    border: 2px solid #0056b3;  /* hover 시 테두리 색상 진한 파란색 */
+}
+
+/* 오류 메시지 스타일 */
+.text-danger {
+    font-size: 14px;
+    color: #DA1E28;
+    display: block;
+}
+
+/* 헤더 스타일 */
+.header {
+    height: 56px; /* 고정된 헤더 높이 */
+    background-color: transparent;
+    border-bottom: 1px solid #DDE1E6; /* 헤더 구분선 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    position: fixed;
+    top: 0; /* 페이지 상단 고정 */
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* 헤더가 다른 요소 위에 오도록 */
+}
+
+/* 푸터 스타일 */
+.footer {
+    height: 179px; /* 고정된 푸터 높이 */
+    background-color: transparent;
+    border-top: 1px solid #DDE1E6; /* 푸터 구분선 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0; /* 페이지 하단 고정 */
+    left: 0;
+    width: 100%;
+}
+
+/* 반응형 처리 */
+@media (max-width: 576px) {
+    .login-box {
+        width: 100%;
+        margin-top: 80px;
+    }
+
+    header, footer {
+        padding: 12px 15px;
+    }
+
+    h2.text-center {
+        font-size: 36px;
+    }
+
+    .badge {
+        flex: 1 1 45%;
+    }
+
+    .d-flex {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

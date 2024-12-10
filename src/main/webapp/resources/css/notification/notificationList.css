@@ -1,0 +1,150 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Pretendard', sans-serif;
+    margin: 0;
+    background-color: transparent;
+    color: #21272A;
+}
+
+.notification-container {
+    position: relative;
+}
+
+.notification-button {
+    cursor: pointer;
+    position: relative;
+}
+
+.notification-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #DA1E28;
+    color: #ffffff;
+    font-size: 10px;
+    padding: 3px 6px;
+    border-radius: 50%;
+}
+
+.notification-dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 250px;
+    background-color: #ffffff;
+    border: 1px solid #314367;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.notification-dropdown.hidden {
+    display: none;
+}
+
+.notification-dropdown.visible {
+    display: block;
+}
+
+.notification-header {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #ffffff;
+}
+
+.notification-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: none; /* 최대 높이 제한 해제 */
+    transition: none; /* 전환 효과 제거 */
+}  
+
+.notification-list li {
+    padding: 14px;
+    border-bottom: 1px solid #f2f4f8;
+    color: #878d96;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0; /* 항목 간 간격 제거 */
+}
+
+.notification-list li.new-notification {
+    color: #343a3f;
+    font-weight: bold;
+}
+
+.delete-icon {
+    cursor: pointer;
+    color: #c1c7cd;
+    font-size: 14px;
+}
+
+.load-more-container {
+    border-top: 1px solid #f0f0f0; /* 구분선 추가 */
+}
+
+.load-more-notifications {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    color: #0F62FE;
+    margin-top: 0; /* 상단 여백 제거 */
+}
+
+.header {
+    height: 56px;
+    background-color: transparent;
+    border-bottom: 1px solid #DDE1E6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .notification-dropdown {
+        width: 200px;
+    }
+    .notification-list li {
+        font-size: 14px;
+        padding: 8px;
+    }
+    .notification-badge {
+        font-size: 10px;
+        padding: 2px 4px;
+    }
+}
+
+@media (max-width: 576px) {
+    .notification-dropdown {
+        width: 150px;
+    }
+    .notification-list li {
+        font-size: 12px;
+        padding: 6px;
+    }
+    .notification-badge {
+        font-size: 8px;
+        padding: 1px 3px;
+    }
+}
